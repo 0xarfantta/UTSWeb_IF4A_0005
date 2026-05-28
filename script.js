@@ -35,16 +35,33 @@ function initDarkMode() {
 
    function toggleTheme() {
     const html = document.documentElement;
-    // classList.toggle – inti dari fitur dark mode
     const isDark = html.getAttribute('data-theme') === 'dark';
     const newTheme = isDark ? 'light' : 'dark';
     applyTheme(newTheme);
-    // Simpan pilihan ke localStorage
+  
     localStorage.setItem('laundrygo-theme', newTheme);
   }
 
-  /* ---- Terapkan tema & update ikon ---- */
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
 
     const isDark = theme === 'dark';
+
+    if (iconDesktop) {
+      iconDesktop.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+    }
+    if (iconMobile) {
+      iconMobile.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+    }
+
+    [toggleDesktop, toggleMobile].forEach(function (btn) {
+      if (btn) {
+        if (isDark) {
+          btn.classList.add('dark-active');
+        } else {
+          btn.classList.remove('dark-active');
+        }
+      }
+    });
+  }
+}
