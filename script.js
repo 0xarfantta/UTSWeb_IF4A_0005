@@ -302,3 +302,19 @@ function initBackToTop() {
     });
   });
 }
+
+function initNavbarScroll() {
+
+  const navbar = document.getElementById('mainNavbar');
+  if (!navbar) return;
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+      navbar.style.padding = '8px 0';
+    } else {
+      navbar.classList.remove('scrolled');
+      navbar.style.padding = '14px 0';
+    }
+  });
+}
