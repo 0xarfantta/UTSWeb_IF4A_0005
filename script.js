@@ -218,3 +218,11 @@ function initValidasiForm() {
       }, { once: true });
     });
   }
+
+  function removeFieldHighlights() {
+    ['contactNama', 'contactEmail', 'contactPesan'].forEach(function (id) {
+      const el = document.getElementById(id);
+      if (el) el.style.borderColor = '';
+    });
+  }
+}
