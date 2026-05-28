@@ -333,7 +333,7 @@
             <a href="#pricing" class="service-link">Lihat Harga <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
-        <!-- Card 6 – Kalkulator Estimasi -->
+
         <div class="col-md-6 col-lg-4">
           <div class="service-card calc-card">
             <div class="service-icon-wrap" style="--icon-color: #4dabf7;">
@@ -341,7 +341,7 @@
             </div>
             <h4>Estimasi Harga</h4>
             <p class="mb-3">Hitung estimasi biaya laundry kamu di sini sebelum memesan.</p>
-            <!-- ===== FITUR 2: KALKULATOR ESTIMASI ===== -->
+    
             <div class="calc-form">
               <input type="number" id="beratInput" class="form-control mb-2" placeholder="Berat (kg)" min="1" />
               <select id="jenisSelect" class="form-select mb-2">
@@ -355,6 +355,101 @@
               <div id="hasilEstimasi" class="estimasi-result mt-2"></div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section class="pricing-section section-padding" id="pricing">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-label">Harga</div>
+        <h2 class="section-title">Paket Harga yang Terjangkau</h2>
+        <p class="section-subtitle">Transparan, tanpa biaya tersembunyi</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <div class="pricing-icon"><i class="bi bi-droplet-fill"></i></div>
+              <h3>Paket Reguler</h3>
+              <div class="pricing-price">Rp 6.000 <span>/kg</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="bi bi-check2"></i> Cuci & Bilas</li>
+              <li><i class="bi bi-check2"></i> Pengeringan Mesin</li>
+              <li><i class="bi bi-check2"></i> Setrika Rapi</li>
+              <li><i class="bi bi-check2"></i> Selesai 1–2 Hari</li>
+              <li class="disabled"><i class="bi bi-x"></i> Antar Jemput</li>
+              <li class="disabled"><i class="bi bi-x"></i> Pewangi Premium</li>
+            </ul>
+            <a href="#contact" class="btn btn-pricing">Pesan Sekarang</a>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card pricing-card-featured">
+            <div class="pricing-popular">Paling Favorit</div>
+            <div class="pricing-header">
+              <div class="pricing-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+              <h3>Paket Express</h3>
+              <div class="pricing-price">Rp 12.000 <span>/kg</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="bi bi-check2"></i> Cuci & Bilas</li>
+              <li><i class="bi bi-check2"></i> Pengeringan Mesin</li>
+              <li><i class="bi bi-check2"></i> Setrika Rapi</li>
+              <li><i class="bi bi-check2"></i> Selesai 6–8 Jam</li>
+              <li><i class="bi bi-check2"></i> Antar Jemput Gratis</li>
+              <li class="disabled"><i class="bi bi-x"></i> Pewangi Premium</li>
+            </ul>
+            <a href="#contact" class="btn btn-pricing-featured">Pesan Sekarang</a>
+          </div>
+        </div>
+        <!-- Premium -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <div class="pricing-icon"><i class="bi bi-gem"></i></div>
+              <h3>Paket Premium</h3>
+              <div class="pricing-price">Rp 15.000 <span>/kg</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="bi bi-check2"></i> Cuci & Bilas Khusus</li>
+              <li><i class="bi bi-check2"></i> Pengeringan Mesin</li>
+              <li><i class="bi bi-check2"></i> Setrika & Lipat Rapi</li>
+              <li><i class="bi bi-check2"></i> Selesai 1 Hari</li>
+              <li><i class="bi bi-check2"></i> Antar Jemput Gratis</li>
+              <li><i class="bi bi-check2"></i> Pewangi Premium</li>
+            </ul>
+            <a href="#contact" class="btn btn-pricing">Pesan Sekarang</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tabel Harga Satuan -->
+      <div class="mt-5">
+        <h4 class="text-center mb-4 fw-bold">Daftar Harga Satuan</h4>
+        <div class="table-responsive">
+          <table class="table price-table">
+            <thead>
+              <tr>
+                <th>Jenis Layanan</th>
+                <th>Satuan</th>
+                <th>Harga</th>
+                <th>Waktu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Cuci Reguler</td><td>per kg</td><td>Rp 6.000</td><td>1–2 Hari</td></tr>
+              <tr><td>Cuci Express</td><td>per kg</td><td>Rp 12.000</td><td>6–8 Jam</td></tr>
+              <tr><td>Cuci Premium</td><td>per kg</td><td>Rp 15.000</td><td>1 Hari</td></tr>
+              <tr><td>Cuci Selimut</td><td>per kg</td><td>Rp 15.000</td><td>1–2 Hari</td></tr>
+              <tr><td>Cuci Sepatu (Biasa)</td><td>per pasang</td><td>Rp 20.000</td><td>1–2 Hari</td></tr>
+              <tr><td>Cuci Sepatu (Suede/Canvas)</td><td>per pasang</td><td>Rp 30.000</td><td>2 Hari</td></tr>
+              <tr><td>Setrika Saja</td><td>per kg</td><td>Rp 5.000</td><td>1 Hari</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
