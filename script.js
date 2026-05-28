@@ -277,3 +277,28 @@ function initCounterAnimation() {
     });
   }
 }
+
+function initBackToTop() {
+
+  const backToTopBtn = document.getElementById('backToTop');
+
+  if (!backToTopBtn) return;
+
+  window.addEventListener('scroll', function () {
+   
+    if (window.scrollY > 400) {
+
+      backToTopBtn.classList.add('visible');
+    } else {
+  
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
