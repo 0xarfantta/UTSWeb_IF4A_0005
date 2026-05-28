@@ -226,3 +226,54 @@ function initValidasiForm() {
     });
   }
 }
+
+function initCounterAnimation() {
+
+  const counterSection = document.getElementById('counterSection');
+  const counters = document.querySelectorAll('.counter-number');
+
+  if (!counterSection || counters.length === 0) return;
+
+  let animated = false; 
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        startCounterAnimation();
+        observer.unobserve(counterSection);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(counterSection);
+
+  function startCounterAnimation() {
+
+    counters.forEach(function (counter) {
+
+      const target   = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000; 
+      const steps    = 60;   
+      const increment = target / steps;
+      let current    = 0;
+      let step       = 0;
+
+   
+      const timer = setInterval(function () {
+        step++;
+        current += increment;
+
+        if (step >= steps || current >= target) {
+          
+          counter.innerHTML = target.toLocaleString('id-ID') + '+';
+          clearInterval(timer);
+        } else {
+        
+          counter.innerHTML = Math.floor(current).toLocaleString('id-ID') + '+';
+        }
+      }, duration / steps);
+
+    });
+  }
+}
