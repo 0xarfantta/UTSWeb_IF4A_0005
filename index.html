@@ -747,3 +747,86 @@
       </div>
     </div>
   </section>
+
+  <section class="contact-section section-padding" id="contact">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-label">Hubungi Kami</div>
+        <h2 class="section-title">Siap Melayani Anda!</h2>
+        <p class="section-subtitle">Kirim pesan, kami akan segera menghubungi Anda</p>
+      </div>
+      <div class="row g-5 align-items-start">
+        <!-- Info Kontak -->
+        <div class="col-lg-5">
+          <div class="contact-info-grid">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <h6>Alamat</h6>
+                <p>Perum Bukit Emas Dahan Rejo Blok F3 NO 17, 61151</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <h6>Telepon / WhatsApp</h6>
+                <p>+62 812-3456-7890</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <h6>Email</h6>
+                <p>arfanpradana22@gmaiil.com</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <h6>Jam Operasional</h6>
+                <p>Weekend: 07.00 – 21.00 WIB</p>
+              </div>
+            </div>
+          </div>
+          <!-- Social Links -->
+          <div class="social-links mt-4">
+            <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-tiktok"></i></a>
+            <a href="https://wa.me/6281234567890" class="social-btn social-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Form Kontak -->
+        <div class="col-lg-7">
+          <div class="contact-form-card">
+            <!-- ===== FITUR 3: VALIDASI FORM ===== -->
+            <form id="contactForm" novalidate>
+              <div class="mb-4">
+                <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                <input type="text" class="form-control contact-input" id="contactNama" placeholder="Masukkan nama Anda" />
+              </div>
+              <div class="mb-4">
+                <label class="form-label">Alamat Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control contact-input" id="contactEmail" placeholder="nama@email.com" />
+              </div>
+              <div class="mb-4">
+                <label class="form-label">Nomor WhatsApp</label>
+                <input type="tel" class="form-control contact-input" id="contactWa" placeholder="08xx-xxxx-xxxx" />
+              </div>
+              <div class="mb-4">
+                <label class="form-label">Pesan <span class="text-danger">*</span></label>
+                <textarea class="form-control contact-input" id="contactPesan" rows="4" placeholder="Tulis pesan atau pertanyaan Anda di sini..."></textarea>
+              </div>
+              <!-- Notifikasi form -->
+              <div id="formNotif" class="form-notif mb-3" style="display:none;"></div>
+              <button type="submit" class="btn btn-submit w-100">
+                <i class="bi bi-send-fill me-2"></i>Kirim Pesan
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
