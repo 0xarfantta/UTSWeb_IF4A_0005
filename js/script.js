@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
 
   initDarkMode();
@@ -33,14 +34,16 @@ function initDarkMode() {
     });
   }
 
-   function toggleTheme() {
+  function toggleTheme() {
     const html = document.documentElement;
+
     const isDark = html.getAttribute('data-theme') === 'dark';
     const newTheme = isDark ? 'light' : 'dark';
     applyTheme(newTheme);
-  
+
     localStorage.setItem('laundrygo-theme', newTheme);
   }
+
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -50,6 +53,7 @@ function initDarkMode() {
     if (iconDesktop) {
       iconDesktop.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
     }
+    // Update ikon mobile
     if (iconMobile) {
       iconMobile.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
     }
@@ -68,32 +72,30 @@ function initDarkMode() {
 
 function initKalkulatorEstimasi() {
 
-  // Ambil elemen menggunakan getElementById
   const btnHitung      = document.getElementById('btnHitung');
   const beratInput     = document.getElementById('beratInput');
   const jenisSelect    = document.getElementById('jenisSelect');
   const hasilEstimasi  = document.getElementById('hasilEstimasi');
 
-  // Pastikan elemen ada (kalau section services ter-render)
   if (!btnHitung) return;
 
-  // Tambah event listener pada tombol hitung
   btnHitung.addEventListener('click', function () {
     hitungEstimasi();
   });
 
-  // Juga hitung saat Enter ditekan di input berat
   beratInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') hitungEstimasi();
   });
 
   function hitungEstimasi() {
 
+
     const berat = parseFloat(beratInput.value);
     const harga = parseInt(jenisSelect.value);
 
+    // Validasi input
     if (isNaN(berat) || berat <= 0) {
-     
+
       hasilEstimasi.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i>Masukkan berat yang valid (minimal 1 kg)!';
       hasilEstimasi.style.display  = 'block';
       hasilEstimasi.style.background    = '#fff5f5';
@@ -102,16 +104,13 @@ function initKalkulatorEstimasi() {
       return;
     }
 
-    // Hitung total
-    const berat_final = berat < 2 ? 2 : berat; // minimum 2 kg
+    const berat_final = berat < 2 ? 2 : berat; // 
     const total       = berat_final * harga;
-
-    // Format Rupiah
     const totalFormatted = total.toLocaleString('id-ID');
-
     const selectedOption = jenisSelect.querySelector('option:checked');
     const namaJenis      = selectedOption.textContent.split('–')[0].trim();
 
+    // Tampilkan hasil menggunakan innerHTML – manipulasi DOM
     hasilEstimasi.innerHTML =
       '<i class="bi bi-calculator-fill me-2"></i>' +
       'Estimasi Total (' + namaJenis + '):<br>' +
@@ -122,12 +121,12 @@ function initKalkulatorEstimasi() {
     hasilEstimasi.style.background = '';
     hasilEstimasi.style.border     = '';
     hasilEstimasi.style.color      = '';
-
     hasilEstimasi.classList.remove('animate-pop');
-    void hasilEstimasi.offsetWidth; // reflow trick untuk restart animasi
+    void hasilEstimasi.offsetWidth; 
     hasilEstimasi.classList.add('animate-pop');
   }
 }
+
 
 function initValidasiForm() {
 
@@ -144,15 +143,18 @@ function initValidasiForm() {
     const email = document.getElementById('contactEmail').value.trim();
     const pesan = document.getElementById('contactPesan').value.trim();
 
+    // ── Validasi field kosong ──
     if (!nama || !email || !pesan) {
       tampilkanNotif(
         'error',
         '<i class="bi bi-exclamation-circle-fill me-2"></i>Lengkapi data terlebih dahulu!'
       );
+      // Tandai field yang kosong
       highlightEmptyFields(nama, email, pesan);
       return;
     }
 
+    // ── Validasi format email ──
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       tampilkanNotif(
@@ -163,28 +165,35 @@ function initValidasiForm() {
       return;
     }
 
+    // ── Semua valid – simulasi pengiriman ──
     tampilkanLoading();
 
+    // Simulasi delay pengiriman (timeout 1.5 detik)
     setTimeout(function () {
       tampilkanNotif(
         'success',
         '<i class="bi bi-check-circle-fill me-2"></i>Pesan berhasil terkirim! Kami akan menghubungi Anda segera.'
       );
-
+      // Reset form setelah berhasil
       contactForm.reset();
       removeFieldHighlights();
     }, 1500);
 
   });
 
+  /* ---- Helpers ---- */
+
+  // Tampilkan notifikasi dengan tipe (error / success)
   function tampilkanNotif(tipe, htmlPesan) {
     formNotif.style.display = 'block';
     formNotif.className = 'form-notif notif-' + tipe;
+    // Manipulasi DOM – innerHTML
     formNotif.innerHTML = htmlPesan;
 
-
+    // Scroll ke notifikasi
     formNotif.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+    // Sembunyikan otomatis setelah 5 detik (hanya untuk sukses)
     if (tipe === 'success') {
       setTimeout(function () {
         formNotif.style.display = 'none';
@@ -192,6 +201,7 @@ function initValidasiForm() {
     }
   }
 
+  // Tampilkan status loading sementara
   function tampilkanLoading() {
     formNotif.style.display = 'block';
     formNotif.className = 'form-notif';
@@ -203,6 +213,7 @@ function initValidasiForm() {
       'Mengirim pesan...';
   }
 
+  // Tandai field yang kosong dengan border merah
   function highlightEmptyFields(nama, email, pesan) {
     const namaEl  = document.getElementById('contactNama');
     const emailEl = document.getElementById('contactEmail');
@@ -212,6 +223,7 @@ function initValidasiForm() {
     if (!email) emailEl.style.borderColor = '#f03e3e';
     if (!pesan) pesanEl.style.borderColor = '#f03e3e';
 
+    // Tambah event listener untuk reset border saat user mengetik
     [namaEl, emailEl, pesanEl].forEach(function (el) {
       el.addEventListener('input', function () {
         el.style.borderColor = '';
@@ -219,6 +231,7 @@ function initValidasiForm() {
     });
   }
 
+  // Hapus highlight semua field
   function removeFieldHighlights() {
     ['contactNama', 'contactEmail', 'contactPesan'].forEach(function (id) {
       const el = document.getElementById(id);
@@ -229,6 +242,7 @@ function initValidasiForm() {
 
 function initCounterAnimation() {
 
+  // Ambil semua elemen counter
   const counterSection = document.getElementById('counterSection');
   const counters = document.querySelectorAll('.counter-number');
 
@@ -252,6 +266,7 @@ function initCounterAnimation() {
 
     counters.forEach(function (counter) {
 
+
       const target   = parseInt(counter.getAttribute('data-target'));
       const duration = 2000; 
       const steps    = 60;   
@@ -259,17 +274,16 @@ function initCounterAnimation() {
       let current    = 0;
       let step       = 0;
 
-   
       const timer = setInterval(function () {
         step++;
         current += increment;
 
         if (step >= steps || current >= target) {
-          
+  
           counter.innerHTML = target.toLocaleString('id-ID') + '+';
           clearInterval(timer);
         } else {
-        
+          // Update angka menggunakan innerHTML
           counter.innerHTML = Math.floor(current).toLocaleString('id-ID') + '+';
         }
       }, duration / steps);
@@ -280,21 +294,24 @@ function initCounterAnimation() {
 
 function initBackToTop() {
 
+ 
   const backToTopBtn = document.getElementById('backToTop');
 
   if (!backToTopBtn) return;
 
-  window.addEventListener('scroll', function () {
-   
-    if (window.scrollY > 400) {
 
+  window.addEventListener('scroll', function () {
+    // Cek posisi scroll
+    if (window.scrollY > 400) {
+  
       backToTopBtn.classList.add('visible');
     } else {
-  
+   
       backToTopBtn.classList.remove('visible');
     }
   });
 
+  // Klik tombol → scroll ke atas halaman
   backToTopBtn.addEventListener('click', function () {
     window.scrollTo({
       top: 0,
@@ -302,6 +319,7 @@ function initBackToTop() {
     });
   });
 }
+
 
 function initNavbarScroll() {
 
@@ -321,16 +339,17 @@ function initNavbarScroll() {
 
 function initActiveNavLink() {
 
+
   const sections  = document.querySelectorAll('section[id]');
   const navLinks  = document.querySelectorAll('.navbar-nav .nav-link');
 
   if (sections.length === 0 || navLinks.length === 0) return;
 
+
   const sectionObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-
 
         navLinks.forEach(function (link) {
           link.classList.remove('active');
@@ -352,11 +371,10 @@ function initActiveNavLink() {
 function initFooterYear() {
   const yearEl = document.getElementById('footerYear');
   if (yearEl) {
- 
+    // Manipulasi DOM – innerHTML untuk set tahun
     yearEl.innerHTML = new Date().getFullYear();
   }
 }
-
 
 (function initRevealAnimation() {
 
@@ -375,7 +393,7 @@ function initFooterYear() {
     el.classList.add('reveal-el');
   });
 
-
+ 
   const revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
