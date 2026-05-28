@@ -264,4 +264,98 @@
     </div>
   </section>
 
-  
+   <section class="services-section section-padding" id="services">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-label">Layanan Kami</div>
+        <h2 class="section-title">Lengkap untuk Semua Kebutuhan Cucian Anda</h2>
+        <p class="section-subtitle">Pilih layanan yang sesuai kebutuhan Anda, kami siap melayani dengan hasil terbaik</p>
+      </div>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon-wrap" style="--icon-color: #4dabf7;">
+              <i class="bi bi-droplet-fill"></i>
+            </div>
+            <h4>Cuci Reguler</h4>
+            <p>Layanan cuci standar dengan kualitas terjamin. Cocok untuk pakaian harian dengan waktu pengerjaan 1–2 hari.</p>
+            <div class="service-price">Mulai Rp 6.000/kg</div>
+            <a href="#pricing" class="service-link">Lihat Harga <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card service-card-featured">
+            <div class="featured-badge">Terpopuler</div>
+            <div class="service-icon-wrap" style="--icon-color: #f59f00;">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <h4>Cuci Express</h4>
+            <p>Cucian beres dalam 6–8 jam! Pilihan terbaik untuk kebutuhan mendesak dengan hasil tetap prima.</p>
+            <div class="service-price">Mulai Rp 12.000/kg</div>
+            <a href="#pricing" class="service-link">Lihat Harga <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon-wrap" style="--icon-color: #69db7c;">
+              <i class="bi bi-snow3"></i>
+            </div>
+            <h4>Cuci Sepatu</h4>
+            <p>Perawatan sepatu profesional menggunakan sikat khusus dan produk premium agar sepatu bersih maksimal.</p>
+            <div class="service-price">Mulai Rp 20.000/pasang</div>
+            <a href="#pricing" class="service-link">Lihat Harga <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon-wrap" style="--icon-color: #da77f2;">
+              <i class="bi bi-cloud-fill"></i>
+            </div>
+            <h4>Cuci Selimut</h4>
+            <p>Cuci selimut, bed cover, dan sprei dengan mesin berkapasitas besar agar bersih sempurna hingga ke serat-seratnya.</p>
+            <div class="service-price">Mulai Rp 15.000/kg</div>
+            <a href="#pricing" class="service-link">Lihat Harga <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon-wrap" style="--icon-color: #ff8787;">
+              <i class="bi bi-gem"></i>
+            </div>
+            <h4>Cuci Premium</h4>
+            <p>Layanan eksklusif untuk pakaian berbahan halus, jas, batik, dan baju branded. Ditangani secara khusus dan cermat.</p>
+            <div class="service-price">Mulai Rp 15.000/kg</div>
+            <a href="#pricing" class="service-link">Lihat Harga <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 6 – Kalkulator Estimasi -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card calc-card">
+            <div class="service-icon-wrap" style="--icon-color: #4dabf7;">
+              <i class="bi bi-calculator-fill"></i>
+            </div>
+            <h4>Estimasi Harga</h4>
+            <p class="mb-3">Hitung estimasi biaya laundry kamu di sini sebelum memesan.</p>
+            <!-- ===== FITUR 2: KALKULATOR ESTIMASI ===== -->
+            <div class="calc-form">
+              <input type="number" id="beratInput" class="form-control mb-2" placeholder="Berat (kg)" min="1" />
+              <select id="jenisSelect" class="form-select mb-2">
+                <option value="7000">Reguler – Rp 7.000/kg</option>
+                <option value="12000">Express – Rp 12.000/kg</option>
+                <option value="15000">Premium – Rp 15.000/kg</option>
+              </select>
+              <button class="btn btn-calc w-100" id="btnHitung">
+                <i class="bi bi-calculator me-1"></i> Hitung Estimasi
+              </button>
+              <div id="hasilEstimasi" class="estimasi-result mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
