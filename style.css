@@ -357,3 +357,61 @@ mainNavbar {
   max-width: 480px;
   filter: drop-shadow(0 20px 50px rgba(77,171,247,0.25));
 }
+
+.spin-slow  { animation: rotateCW  6s linear infinite; transform-origin: 250px 230px; }
+.spin-fast  { animation: rotateCCW 4s linear infinite; transform-origin: 250px 230px; }
+@keyframes rotateCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
+@keyframes rotateCCW { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
+
+.float-item-1 { animation: floatY1 3s ease-in-out infinite alternate; }
+.float-item-2 { animation: floatY2 3.5s ease-in-out infinite alternate; }
+.float-item-3 { animation: floatY3 4s ease-in-out infinite alternate; }
+@keyframes floatY1 { 0% { transform: translateY(0); }  100% { transform: translateY(-15px); } }
+@keyframes floatY2 { 0% { transform: translateY(0); }  100% { transform: translateY(-20px); } }
+@keyframes floatY3 { 0% { transform: translateY(0); }  100% { transform: translateY(-10px); } }
+
+.sparkle { animation: sparklePulse 2s ease-in-out infinite alternate; }
+@keyframes sparklePulse { 0% { opacity: 0.4; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
+
+.bubble { animation: bubbleFloat 4s ease-in-out infinite alternate; }
+@keyframes bubbleFloat { 0% { transform: translateY(0); } 100% { transform: translateY(-18px); } }
+
+/* ========================
+   7. COUNTER SECTION
+   ======================== */
+.counter-section {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  position: relative;
+  overflow: hidden;
+}
+.counter-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.counter-card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.counter-icon {
+  font-size: 2.2rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 10px;
+}
+.counter-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.counter-label {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
