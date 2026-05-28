@@ -318,3 +318,33 @@ function initNavbarScroll() {
     }
   });
 }
+
+function initActiveNavLink() {
+
+  const sections  = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.navbar-nav .nav-link');
+
+  if (sections.length === 0 || navLinks.length === 0) return;
+
+  const sectionObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+
+
+        navLinks.forEach(function (link) {
+          link.classList.remove('active');
+        });
+
+        const activeLink = document.querySelector('.navbar-nav .nav-link[href="#' + id + '"]');
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(function (section) {
+    sectionObserver.observe(section);
+  });
+}
