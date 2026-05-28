@@ -389,3 +389,20 @@ function initFooterYear() {
     revealObserver.observe(el);
   });
 })();
+
+(function initNavCollapseOnClick() {
+  const navLinks    = document.querySelectorAll('.navbar-nav .nav-link');
+  const navCollapse = document.getElementById('navMenu');
+
+  if (!navCollapse) return;
+
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      // Tutup navbar collapse di mobile setelah link diklik
+      const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+      if (bsCollapse) {
+        bsCollapse.hide();
+      }
+    });
+  });
+})();
