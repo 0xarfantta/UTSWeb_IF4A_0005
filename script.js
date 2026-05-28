@@ -176,3 +176,45 @@ function initValidasiForm() {
     }, 1500);
 
   });
+
+  function tampilkanNotif(tipe, htmlPesan) {
+    formNotif.style.display = 'block';
+    formNotif.className = 'form-notif notif-' + tipe;
+    formNotif.innerHTML = htmlPesan;
+
+
+    formNotif.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (tipe === 'success') {
+      setTimeout(function () {
+        formNotif.style.display = 'none';
+      }, 5000);
+    }
+  }
+
+  function tampilkanLoading() {
+    formNotif.style.display = 'block';
+    formNotif.className = 'form-notif';
+    formNotif.style.background = 'var(--primary-bg)';
+    formNotif.style.border     = '1.5px solid var(--primary-light)';
+    formNotif.style.color      = 'var(--primary-dark)';
+    formNotif.innerHTML =
+      '<span class="spinner-border spinner-border-sm me-2" role="status"></span>' +
+      'Mengirim pesan...';
+  }
+
+  function highlightEmptyFields(nama, email, pesan) {
+    const namaEl  = document.getElementById('contactNama');
+    const emailEl = document.getElementById('contactEmail');
+    const pesanEl = document.getElementById('contactPesan');
+
+    if (!nama)  namaEl.style.borderColor  = '#f03e3e';
+    if (!email) emailEl.style.borderColor = '#f03e3e';
+    if (!pesan) pesanEl.style.borderColor = '#f03e3e';
+
+    [namaEl, emailEl, pesanEl].forEach(function (el) {
+      el.addEventListener('input', function () {
+        el.style.borderColor = '';
+      }, { once: true });
+    });
+  }
