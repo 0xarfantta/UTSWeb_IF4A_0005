@@ -128,3 +128,51 @@ function initKalkulatorEstimasi() {
     hasilEstimasi.classList.add('animate-pop');
   }
 }
+
+function initValidasiForm() {
+
+  const contactForm  = document.querySelector('#contactForm');
+  const formNotif    = document.querySelector('#formNotif');
+
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', function (e) {
+
+    e.preventDefault();
+
+    const nama  = document.getElementById('contactNama').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const pesan = document.getElementById('contactPesan').value.trim();
+
+    if (!nama || !email || !pesan) {
+      tampilkanNotif(
+        'error',
+        '<i class="bi bi-exclamation-circle-fill me-2"></i>Lengkapi data terlebih dahulu!'
+      );
+      highlightEmptyFields(nama, email, pesan);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      tampilkanNotif(
+        'error',
+        '<i class="bi bi-envelope-x-fill me-2"></i>Format email tidak valid!'
+      );
+      document.getElementById('contactEmail').classList.add('is-invalid-custom');
+      return;
+    }
+
+    tampilkanLoading();
+
+    setTimeout(function () {
+      tampilkanNotif(
+        'success',
+        '<i class="bi bi-check-circle-fill me-2"></i>Pesan berhasil terkirim! Kami akan menghubungi Anda segera.'
+      );
+
+      contactForm.reset();
+      removeFieldHighlights();
+    }, 1500);
+
+  });
