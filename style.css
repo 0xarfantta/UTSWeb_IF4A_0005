@@ -760,3 +760,34 @@ mainNavbar {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
+
+.price-table {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: none;
+}
+.price-table thead tr {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}
+.price-table thead th {
+  border: none;
+  padding: 14px 20px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.price-table tbody tr {
+  background: var(--bg-card);
+  transition: background var(--transition);
+}
+.price-table tbody tr:nth-child(even) { background: var(--bg-section); }
+.price-table tbody tr:hover { background: var(--primary-bg); }
+.price-table tbody td {
+  border: none;
+  border-top: 1px solid var(--border);
+  padding: 13px 20px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
