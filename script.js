@@ -348,3 +348,44 @@ function initActiveNavLink() {
     sectionObserver.observe(section);
   });
 }
+
+function initFooterYear() {
+  const yearEl = document.getElementById('footerYear');
+  if (yearEl) {
+ 
+    yearEl.innerHTML = new Date().getFullYear();
+  }
+}
+
+
+(function initRevealAnimation() {
+
+  const styleEl = document.createElement('style');
+  styleEl.innerHTML = [
+    '.reveal-el { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }',
+    '.reveal-el.revealed { opacity: 1; transform: translateY(0); }',
+  ].join('\n');
+  document.head.appendChild(styleEl);
+
+  const revealTargets = document.querySelectorAll(
+    '.service-card, .pricing-card, .testi-card, .process-step, .contact-info-item, .counter-card'
+  );
+
+  revealTargets.forEach(function (el) {
+    el.classList.add('reveal-el');
+  });
+
+
+  const revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealTargets.forEach(function (el) {
+    revealObserver.observe(el);
+  });
+})();
